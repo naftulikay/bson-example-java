@@ -12,15 +12,36 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jackson.version>2.3.0</jackson.version>
+		<jackson.version>2.3.3</jackson.version>
+		<slf4j.version>1.7.7</slf4j.version>
+		<logback.version>1.1.2</logback.version>
 	</properties>
 
 	<dependencies>
+		<!-- logging with slf4j and logback -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<!-- mongodb's bson library for objectid -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>bson</artifactId>
+			<version>2.12.2</version>
+		</dependency>
+		<!-- bson extensions for jackson -->
 		<dependency>
 			<groupId>de.undercouch</groupId>
 			<artifactId>bson4jackson</artifactId>
 			<version>2.3.1</version>
 		</dependency>
+		<!-- jackson serialization library -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
