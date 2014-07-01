@@ -11,6 +11,7 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tkassembled.example.bson.data.Article;
+import org.tkassembled.example.bson.data.FileAttachment;
 import org.tkassembled.example.bson.data.Tag;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -34,8 +35,9 @@ public class BSONWriterApplication {
 			JsonMappingException, JsonGenerationException, IOException {
 //		create an article object to serialize
 		Article article = new Article("The Beginning of Everything", new Date(0), 
-				"Wow, such much is wow yes!", Arrays.asList(new Tag("beginning"),
-						new Tag("first")));
+				"Wow, such much is wow yes!", 
+				Arrays.asList(new Tag("beginning"), new Tag("first")),
+				Arrays.asList(new FileAttachment("bunchobytes.bin", new byte[] {0x01, 0x03, 0x05, 0x10})));
 		
 //		get the system's temporary directory
 		final String tmpDir = System.getProperty("java.io.tmpdir");

@@ -11,45 +11,57 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonAutoDetect
-@JsonPropertyOrder({"id","name"})
-public class Tag {
+@JsonPropertyOrder({"_id", "filename", "data"})
+public class FileAttachment {
 	
 	@JsonProperty("_id")
 	@JsonSerialize(using=BinaryObjectIdSerializer.class)
 	@JsonDeserialize(using=BinaryObjectIdDeserializer.class)
 	private ObjectId id;
 	
-	private String name;
+	private String filename;
 	
-	public Tag() {
+	private byte[] data;
+	
+	public FileAttachment() {
 		super();
 	}
 	
-	public Tag(ObjectId id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-	
-	public Tag(String name) {
+	public FileAttachment(String filename, byte[] data) {
 		super();
 		this.id = new ObjectId();
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		this.filename = filename;
+		this.data = data;
 	}
 	
+	public FileAttachment(ObjectId id, String filename, byte[] data) {
+		super();
+		this.id = id;
+		this.filename = filename;
+		this.data = data;
+	}
+
 	public ObjectId getId() {
-		return this.id;
+		return id;
 	}
-	
-	public void setId(ObjectId value) {
-		this.id = value;
+
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
 	}
 }

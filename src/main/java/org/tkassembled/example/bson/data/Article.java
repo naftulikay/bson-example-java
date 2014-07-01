@@ -30,17 +30,21 @@ public class Article {
 	
 	private List<Tag> tags;
 	
+	private List<FileAttachment> attachments;
+	
 	public Article() {
 		super();
 	}
 	
-	public Article(String title, Date date, String body, List<Tag> tags) {
+	public Article(String title, Date date, String body, List<Tag> tags,
+			List<FileAttachment> attachments) {
 		super();
 		this.id = new ObjectId();
 		this.title = title;
 		this.date = date;
 		this.body = body;
 		this.tags = tags;
+		this.attachments = attachments;
 	}
 
 	public String getTitle() {
@@ -77,6 +81,14 @@ public class Article {
 
 	public ObjectId getId() {
 		return id;
+	}
+
+	public List<FileAttachment> getAttachments() {
+		return attachments;
+	}
+
+	public void setAttachments(List<FileAttachment> attachments) {
+		this.attachments = attachments;
 	}
 	
 	

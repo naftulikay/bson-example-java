@@ -27,7 +27,7 @@ public class BinaryObjectIdDeserializer extends StdDeserializer<ObjectId> {
 	public ObjectId deserialize(JsonParser jp, DeserializationContext ctxt)
 			throws IOException, JsonProcessingException {
 //		jp.read
-		byte[] value = (byte[]) jp.getBinaryValue();
+		byte[] value = (byte[]) jp.getEmbeddedObject();
 		
 		logger.debug("Read {}-byte ObjectId: {}; hex: {}", value.length, value, 
 				encodeHexString(value));
